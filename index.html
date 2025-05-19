@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Λ R C Ξ Ν Ι U Χ</title>
+  <link rel="icon" href="Recursos/piedpiper.png" type="image/png" />
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="Styles/style.css" />
+  <style>
+    header nav {
+      position: relative;
+    }
+
+    #portafolio {
+      padding: 60px 20px;
+      background-color: #111;
+      text-align: center;
+    }
+    .portfolio-slider {
+      position: relative;
+      width: 90%;
+      max-width: 800px;
+      margin: 0 auto;
+      height: 400px;
+      overflow: hidden;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.7);
+    }
+    .portfolio-slide {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+    .portfolio-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .portfolio-slide:first-child {
+      opacity: 1;
+    }
+    .heading {
+      color: #fff;
+      margin-bottom: 20px;
+      font-size: 32px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="#home" class="logo">Λ R C Ξ Ν Ι U Χ</a>
+    <i class="bx bx-menu" id="menu-icon"></i>
+    <nav>
+      <a href="#home" class="active">Página Principal</a>
+      <a href="#" id="sobre-mi-btn">Sobre mí</a>
+      <a href="#portafolio">Portafolio</a>
+      <a href="#contact">Contáctame</a>
+      <div id="sobre-mi-list">
+        <ul>
+          <li><i class='bx bx-street-view' style="margin-right: 8px;"></i> Soy de Colombia</li>
+          <li><i class='bx bx-book-bookmark' style="margin-right: 8px;"></i> Estudiante de Talento Tech</li>
+          <li><i class='bx bx-palette' style="margin-right: 8px;"></i> Me gusta el diseño</li>
+          <li><i class='bx bx-bowl-hot' style="margin-right: 8px;"></i> Me gusta cocinar</li>
+          <li><img src="Recursos/gato.svg" alt="Gato" style="width: 20px; height: 20px; margin-right: 8px; vertical-align: middle;"> Me gustan los gatos</li>
+          <li><i class='bx bx-code' style="margin-right: 8px;"></i> Disfruto Programar</li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <section class="home active" id="home">
+    <div class="home-detail">
+      <div class="text-container">
+        <h1>Λ R C Ξ Ν Ι U Χ</h1>
+        <h2>Soy <span class="typed-text"></span><span class="cursor">&nbsp;</span></h2>
+        <br />
+        <p class="description">
+          Me interesa dedicarme al desarrollo de software creativo y de fácil uso.
+        </p>
+      </div>
+      <div class="sci">
+        <a href="#" onclick="event.preventDefault(); showLink(event, 'https://github.com/ARCENIUX96')"><i class="bx bxl-github"></i></a>
+        <a href="#" onclick="event.preventDefault(); showLink(event, 'www.linkedin.com')"><i class="bx bxl-linkedin-square"></i></a>
+        <a href="#" onclick="event.preventDefault(); showLink(event, 'arceniux08@gmail.com')"><i class="bx bxl-gmail"></i></a>
+        <a href="#" onclick="event.preventDefault(); showLink(event, '(+57) 3224595706')"><i class="bx bxl-whatsapp"></i></a>
+        <a href="#" onclick="event.preventDefault(); showLink(event, 'www.instagram.com/arceniux96/')"><i class="bx bxl-instagram"></i></a>
+      </div>
+    </div>
+
+    <div class="home-img">
+      <div class="orbit-container">
+        <div class="glowing-ring"></div>
+        <div class="img-box">
+          <img src="Recursos/perfil cv.png" alt="Mi Foto" class="img-item" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="portafolio">
+    <h2 class="heading">Portafolio</h2>
+    <div class="portfolio-slider">
+      <div class="portfolio-slide"><img src="Recursos/Portafolio 1.png" alt="Proyecto 1"></div>
+      <div class="portfolio-slide"><img src="Recursos/Portafolio 2.png" alt="Proyecto 2"></div>
+      <div class="portfolio-slide"><img src="Recursos/Portafolio 3.png" alt="Proyecto 3"></div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <div class="contact-container">
+      <div class="contact-box">
+        <h2 class="heading">¡Contáctame!</h2>
+        <form id="contact-form" novalidate>
+          <div class="field-box">
+            <input type="text" name="nombre" placeholder="Nombres" required />
+            <input type="text" name="apellido" placeholder="Apellidos" required />
+            <input type="email" name="email" placeholder="Em@il" required />
+            <input type="tel" name="telefono" placeholder="Teléfono" required pattern="[0-9\s+\-]{7,15}" />
+            <textarea name="mensaje" placeholder="¿Cómo te puedo ayudar?" required></textarea>
+          </div>
+          <div class="btn-group">
+            <button type="submit" class="btn">Enviar</button>
+            <button type="reset" class="btn btn-secondary">Empezar de nuevo</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <div class="popup" id="popup">
+    <a id="popup-link" href="#" target="_blank" rel="noopener noreferrer"></a>
+    <button onclick="copyLink()">Copiar enlace</button>
+    <span class="close-btn" onclick="closePopup()"><i class='bx  bx-x-circle'  ></i> </span>
+  </div>
+
+  <script src="Java Script/script.js"></script>
+</body>
+</html>
